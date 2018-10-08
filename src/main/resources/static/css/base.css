@@ -1,0 +1,44 @@
+.cutBox1,
+.cutBox2 {
+    border: 2px solid #f6a828;
+    border-radius: 4px;
+    margin: 20px 0 0 0;
+    padding: 15px 15px 5px 15px;
+    position: relative;
+}
+
+.cutBox1::before {
+    background-color: #EEEEEE;
+    color: #f6a828;
+    content: "分割①";
+    font-weight: bold;
+    left: 1em;
+    padding: 0 .5em;
+    position: absolute;
+    top: -1em;
+}
+
+.cutBox2::before {
+    background-color: #EEEEEE;
+    color: #f6a828;
+    content: "分割②";
+    font-weight: bold;
+    left: 1em;
+    padding: 0 .5em;
+    position: absolute;
+    top: -1em;
+}
+
+#error1,
+#error2 {
+	height : 16px;
+}
+
+.red {
+	font-size:14px;
+	color:red;
+}
+
+.cutTime {
+	padding-top:10px;
+}
