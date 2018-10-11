@@ -8,9 +8,8 @@ import java.io.Serializable;
 @Data
 public class SampleBean implements Serializable {
 
-	@NotBlank
-  private String name;
+  @NotBlank private String name;
   private String aaa;
-	private String bbb;
-	private String ccc;
+  private String bbb;
+  private String ccc;
 }

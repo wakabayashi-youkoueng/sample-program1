@@ -58,7 +58,7 @@ public class HelloController {
    * リストを返す処理
    *
    * @param beanList 画面から渡される引数
-   * @return
+   * @return json
    */
   @RequestMapping(value = "/service", consumes = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody

@@ -10,17 +10,15 @@ import java.util.List;
 @Component
 public class EmployeeDao {
 
-	@Autowired
-	EmployeeRepository empRepository;
+  @Autowired EmployeeRepository empRepository;
 
-	/**
-	 * 社員全件検索
-	 * @return employeeList
-	 */
-	public List<EmployeeEntity> searchAll() {
-		List<EmployeeEntity> employeeList = empRepository.findAll();
-		return employeeList;
-	}
-
-
+  /**
+   * 社員全件検索
+   *
+   * @return employeeList
+   */
+  public List<EmployeeEntity> searchAll() {
+    List<EmployeeEntity> employeeList = empRepository.findAll();
+    return employeeList;
+  }
 }

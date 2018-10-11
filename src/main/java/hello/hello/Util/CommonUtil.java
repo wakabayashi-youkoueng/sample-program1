@@ -45,9 +45,9 @@ public class CommonUtil {
   /**
    * DTOクラスのインスタンスをJSON文字列に変換する
    *
-   * @param dto
-   * @return String
-   * @throws JsonProcessingException
+   * @param dto Json変換対象のDtoオブジェクト
+   * @return String Json
+   * @throws JsonProcessingException Json変換できないときのエラー
    */
   public static String dto2Json(Object dto) {
 

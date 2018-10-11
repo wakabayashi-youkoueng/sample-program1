@@ -25,7 +25,7 @@ public class HelloService {
    */
   public CompanyDto getCompany() {
 
-    CompanyEntity companyEntity = companyDao.searchCompany(1l);
+    CompanyEntity companyEntity = companyDao.searchCompany(1L);
     CompanyDto dto = new CompanyDto();
     BeanUtils.copyProperties(companyEntity, dto);
     dto.setEmployeeDtoList(
