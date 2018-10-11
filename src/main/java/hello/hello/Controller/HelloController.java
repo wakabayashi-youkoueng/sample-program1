@@ -28,7 +28,7 @@ public class HelloController {
    * home画面を表示 （無くてもindex.htmlを起動するが、明示的に表示している）
    *
    * @param model model
-   * @return index.html
+   * @return sample.html
    */
   @GetMapping("/")
   public String home(Model model) {
