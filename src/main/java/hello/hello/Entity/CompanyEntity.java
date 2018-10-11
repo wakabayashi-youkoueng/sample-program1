@@ -17,5 +17,5 @@ public class CompanyEntity extends AbstractEntity {
   private String companyName;
 
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "company")
-  private List<EmployeeEntity> employeeList;
+  private List<EmployeeEntity> employeeEntityList;
 }

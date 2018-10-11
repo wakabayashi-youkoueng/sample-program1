@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Data
 public class EmployeeDto {
 
-	private Long id;
-	private String empname;
-
+  private Long empId;
+  private String empname;
 }

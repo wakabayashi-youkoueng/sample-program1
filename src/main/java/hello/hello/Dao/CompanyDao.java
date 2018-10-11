@@ -8,18 +8,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class CompanyDao {
 
-	@Autowired
-	CompanyRepository companyRepository;
+  @Autowired CompanyRepository companyRepository;
 
-	public CompanyEntity insCompany(CompanyEntity insEntity){
+  public CompanyEntity insCompany(CompanyEntity insEntity) {
 
-		CompanyEntity tmp = companyRepository.save(insEntity);
+    CompanyEntity tmp = companyRepository.save(insEntity);
 
-		return  tmp;
-	}
+    return tmp;
+  }
 
-	public CompanyEntity searchCompany(Long companyId){
-		CompanyEntity tmp = companyRepository.findById(companyId).orElse(new CompanyEntity());
-		return  tmp;
-	}
+  public CompanyEntity searchCompany(Long companyId) {
+    CompanyEntity tmp = companyRepository.findById(companyId).orElse(new CompanyEntity());
+    return tmp;
+  }
 }
