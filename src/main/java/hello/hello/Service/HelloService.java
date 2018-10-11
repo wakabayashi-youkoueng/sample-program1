@@ -1,10 +1,13 @@
 package hello.hello.Service;
 
 import hello.hello.Dao.CompanyDao;
+import hello.hello.Dao.ScheduleDao;
 import hello.hello.Dto.CompanyDto;
 import hello.hello.Dto.EmployeeDto;
+import hello.hello.Dto.ScheduleDto;
 import hello.hello.Entity.CompanyEntity;
 import hello.hello.Entity.EmployeeEntity;
+import hello.hello.Entity.ScheduleEntity;
 import hello.hello.Util.CommonUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,18 @@ import java.util.List;
 public class HelloService {
 
   @Autowired CompanyDao companyDao;
+  @Autowired ScheduleDao scheduleDao;
+
+  public List<ScheduleDto> getSchedule() {
+
+    List<ScheduleEntity> scheduleEntityList = scheduleDao.searchAll();
+
+    List<ScheduleDto> scheduleDtoList = new ArrayList<>();
+
+    scheduleDtoList = CommonUtil.copyListProperties(scheduleEntityList, ScheduleDto.class);
+
+    return scheduleDtoList;
+  }
 
   /**
    * 会社を取得
@@ -32,6 +47,37 @@ public class HelloService {
         CommonUtil.copyListProperties(companyEntity.getEmployeeEntityList(), EmployeeDto.class));
 
     return dto;
+  }
+
+  public List<ScheduleDto> RefreshSchedule() {
+
+  	scheduleDao.delAll();
+
+    List<ScheduleEntity> scheduleEntityList = new ArrayList<>();
+
+    ScheduleEntity entity1 = new ScheduleEntity();
+    entity1.setTimeline(0L);
+    entity1.setStart(32400L);
+    entity1.setEnd(43200L);
+    entity1.setText("工程1：400枚");
+    ScheduleEntity entity2 = new ScheduleEntity();
+    entity2.setTimeline(0L);
+    entity2.setStart(54000L);
+    entity2.setEnd(57600L);
+    entity2.setText("工程1：200枚");
+    ScheduleEntity entity3 = new ScheduleEntity();
+    entity3.setTimeline(1L);
+    entity3.setStart(57600L);
+    entity3.setEnd(61200L);
+    entity3.setText("工程2：100枚");
+
+    scheduleEntityList.add(entity1);
+    scheduleEntityList.add(entity2);
+    scheduleEntityList.add(entity3);
+
+    List<ScheduleEntity> resultList = scheduleDao.insList(scheduleEntityList);
+
+    return CommonUtil.copyListProperties(resultList, ScheduleDto.class);
   }
 
   /**

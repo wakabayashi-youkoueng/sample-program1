@@ -1,4 +1,6 @@
 var gl_scheduleData;
+var $sc;
+
 $(function () {
   // ===================================== tabulatorへの反映 start =====================================
 
@@ -30,7 +32,6 @@ $(function () {
 		$("#cut1EndMinute").append($('<option>').val("30").text("30"));
 		$("#cut2StartMinute").append($('<option>').val("30").text("30"));
 		$("#cut2EndMinute").append($('<option>').val("30").text("30"));
-
 
   // ===================================== 時間コンボボックスの作成  end  =====================================
 
@@ -166,6 +167,25 @@ $(function () {
     );
   });
 
+  $(document).on('click', '#refreshScheduleBtn', function () {
+
+    // 通信実行
+    $.ajax({
+      type: "post",
+      url: "/refreshSchedule",
+      dataType: "json",
+    })
+    .then(
+      function (json_data) {
+        // 成功時の処理
+        console.log(json_data);
+      },
+      function(){
+        // 失敗時の処理
+        console.log("失敗しました");
+      }
+    );
+  });
 
   $(document).on('click', '#helloBtn', function () {
 
@@ -178,6 +198,39 @@ $(function () {
       .submit();
   });
 
+
+	// スケジュールデータの取得
+  $.ajax({
+    type: "post",
+    url: "/getSchedule",
+    dataType: "json",
+  })
+  .then(
+    function (json_data) {
+      // 成功時の処理
+
+		  $.each(json_data, function (index, value) {
+
+				var tmpSchedule = {
+					id : value.scheduleId,
+					timeline : value.timeline,
+					start : value.start,
+					end : value.end,
+					text : value.text,
+				}
+
+				console.log(tmpSchedule);
+
+				$sc.addScheduleData(tmpSchedule);
+				// 再描画
+				$sc.resetBarPosition(tmpSchedule.timeline);
+		  });
+    },
+    function(){
+      // 失敗時の処理
+      console.log("失敗しました");
+    }
+  );
 });
 
 // 「秒」を「時：分」に変換する処理(30分区切り)
