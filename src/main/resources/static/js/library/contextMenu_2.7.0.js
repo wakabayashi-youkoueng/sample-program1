@@ -31,10 +31,6 @@
 
     'use strict';
 
-    // TODO: -
-    // ARIA stuff: menuitem, menuitemcheckbox und menuitemradio
-    // create <menu> structure if $.support[htmlCommand || htmlMenuitem] and !opt.disableNative
-
     // determine html5 compatibility
     $.support.htmlMenuitem = ('HTMLMenuItemElement' in window);
     $.support.htmlCommand = ('HTMLCommandElement' in window);

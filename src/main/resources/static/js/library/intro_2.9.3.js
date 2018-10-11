@@ -204,7 +204,6 @@
       }.bind(this));
 
       //next add intro items without data-step
-      //todo: we need a cleanup here, two loops are redundant
       var nextStep = 0;
 
       _forEach(allIntroSteps, function (currentElement) {
@@ -1405,7 +1404,6 @@
       var winHeight = _getWinSize().height;
       var top = rect.bottom - (rect.bottom - rect.top);
 
-      // TODO (afshinm): do we need scroll padding now?
       // I have changed the scroll option and now it scrolls the window to
       // the center of the target element or tooltip.
 
@@ -1867,10 +1865,6 @@
 
     _addHints.call(this);
 
-    /* 
-    todo:
-    these events should be removed at some point 
-    */
     DOMEvent.on(document, 'click', _removeHintTooltip, this, false);
     DOMEvent.on(window, 'resize', _reAlignHints, this, true);
   }
