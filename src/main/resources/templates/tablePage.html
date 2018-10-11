@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="sbadmin2">
+      layout:decorate="~{layout/layout}">
+
+<head>
+	<title>Table</title>
+</head>
 <body>
-<div layout:fragment="content">
+
+<!-- Page Content -->
+<div id="page-wrapper" layout:fragment="content">
 	<div class="container-fluid">
 		<div class="row">
+
 			<div class="col-lg-12">
-				<h1 class="page-header">Blank</h1>
+				<h1 class="page-header">Table</h1>
 			</div>
 			<!-- /.col-lg-12 -->
+
+			<div id="testTable"></div>
+
+			<div id="space"></div>
+
 		</div>
 		<!-- /.row -->
 	</div>
 	<!-- /.container-fluid -->
 </div>
+<!-- /#page-wrapper -->
+
 </body>
 </html>

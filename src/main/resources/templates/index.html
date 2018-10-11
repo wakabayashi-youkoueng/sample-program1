@@ -12,9 +12,59 @@
 </head>
 <body>
 
-<div layout:fragment="content">
+<!-- Page Content -->
+<div id="page-wrapper" layout:fragment="content">
+	<div class="container-fluid">
+		<div class="row">
 
+			<div class="col-lg-12">
+				<h1 class="page-header">Schedule</h1>
+			</div>
+
+			<div class="col-lg-12" id="schedule"></div>
+
+			<div class="col-lg-12" id="space"></div>
+
+			<div id="editSchedule">
+
+			</div>
+
+			<div id="cutSchedule" style="display: none;">
+				<div>
+					<div class="cutBox1">
+						<div class="cutTime">
+							<label>開始</label>
+							<select class="form-control" id="cut1StartHour"></select>
+							<select class="form-control" id="cut1StartMinute"></select>
+							<label>終了</label>
+							<select class="form-control" id="cut1EndHour"></select>
+							<select class="form-control" id="cut1EndMinute"></select>
+						</div>
+						<div id="error1"></div>
+					</div>
+
+					<div class="cutBox2">
+						<div class="cutTime">
+							<label>開始</label>
+							<select class="form-control" id="cut2StartHour"></select>
+							<select class="form-control" id="cut2StartMinute"></select>
+							<label>終了</label>
+							<select class="form-control" id="cut2EndHour"></select>
+							<select class="form-control" id="cut2EndMinute"></select>
+						</div>
+						<div id="error2"></div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.container-fluid -->
 </div>
+<!-- /#page-wrapper -->
 
 </body>
 </html>

@@ -3,8 +3,9 @@
     border: 2px solid #f6a828;
     border-radius: 4px;
     margin: 20px 0 0 0;
-    padding: 15px 15px 5px 15px;
+    padding: 5px 0px 0px 0px;
     position: relative;
+    text-align: center;
 }
 
 .cutBox1::before {
@@ -45,4 +46,15 @@
 
 #space {
 	height : 10px;
+}
+
+.navbar-default{
+	margin-bottom: 0;
+	z-index: 90;
+}
+
+select.form-control {
+	width: 45px;
+	padding: 2px;
+	display : inline;
 }

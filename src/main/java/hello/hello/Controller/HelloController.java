@@ -3,7 +3,6 @@ package hello.hello.Controller;
 import hello.hello.Dto.CompanyDto;
 import hello.hello.Entity.CompanyEntity;
 import hello.hello.Form.Sample2Bean;
-import hello.hello.Form.SampleBean;
 import hello.hello.Service.HelloService;
 import hello.hello.Util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -28,7 +25,7 @@ public class HelloController {
    * home画面を表示 （無くてもindex.htmlを起動するが、明示的に表示している）
    *
    * @param model model
-   * @return sample.html
+   * @return index.html
    */
   @GetMapping("/")
   public String home(Model model) {
@@ -36,22 +33,33 @@ public class HelloController {
   }
 
   /**
-   * hello画面を表示
+   * index画面を表示
    *
-   * @return hello.html
+   * @return index.html
    */
-  @PostMapping("/hello")
-  public String hello(
-      @Validated @ModelAttribute SampleBean form, BindingResult result, Model model) {
+  @PostMapping("/index")
+  public String index() {
+    return "index";
+  }
 
-    if (result.hasErrors()) {
-      return "index";
-    }
+  /**
+   * Dashboard画面を表示
+   *
+   * @return dashboard.html
+   */
+  @PostMapping("/dashboard")
+  public String dashboard() {
+    return "/dashboard";
+  }
 
-    model.addAttribute("name", form.getName());
-    model.addAttribute("test", form);
-
-    return "hello";
+  /**
+   * Table画面を表示
+   *
+   * @return tablePage.html
+   */
+  @PostMapping("/tablePage")
+  public String tablePage() {
+    return "/tablePage";
   }
 
   /**

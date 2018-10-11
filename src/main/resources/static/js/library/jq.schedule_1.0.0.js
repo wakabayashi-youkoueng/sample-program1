@@ -169,7 +169,7 @@
             var $timeline = $(html);
             for(var t=tableStartTime;t<tableEndTime;t+=setting.widthTime){
                 var $tl = $('<div class="tl"></div>');
-                $tl.width(setting.widthTimeX - setting.timeBorder);
+                $tl.width(setting.widthTimeX - setting.timeBorder + 1);
 
                 $tl.data("time",element.formatTime(t));
                 $tl.data("timeline",timeline);
@@ -552,9 +552,10 @@
                         (Math.floor(before_time / 3600) != Math.floor(t / 3600))){
                     var html = '';
                     html += '<div class="sc_time">'+element.formatTime(t)+'</div>';
+
                     var $time = $(html);
                     var cell_num = Math.floor(Number(Math.min((Math.ceil((t + setting.widthTime) / 3600) * 3600),tableEndTime) - t) / setting.widthTime);
-                    $time.width((cell_num * setting.widthTimeX) - setting.headTimeBorder);
+                    $time.width((cell_num * setting.widthTimeX) - setting.headTimeBorder + 1);
                     $element.find(".sc_header_scroll").append($time);
 
                     before_time = t;

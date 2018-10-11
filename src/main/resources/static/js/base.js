@@ -1,20 +1,47 @@
 var gl_scheduleData;
 $(function () {
   // ===================================== tabulatorへの反映 start =====================================
+
   var scheduleList = $().getScheduleData();
+
   $.each(scheduleList, function (index, value) {
     value['no'] = index + 1;
     $("#testTable").tabulator("addRow", scheduleList[index]);
   });
+
   // ===================================== tabulatorへの反映  end  =====================================
+
+  // ===================================== 時間コンボボックスの作成 start =====================================
+
+  for(var i = 0; i < 24; i++){
+    num = ("00" + i).slice(-2);
+		$("#cut1StartHour").append($('<option>', { value: num, text: num}));
+		$("#cut1EndHour").append($('<option>', { value: num, text: num}));
+		$("#cut2StartHour").append($('<option>', { value: num, text: num}));
+		$("#cut2EndHour").append($('<option>', { value: num, text: num}));
+  }
+
+		$("#cut1StartMinute").append($('<option>').val("00").text("00"));
+		$("#cut1EndMinute").append($('<option>').val("00").text("00"));
+		$("#cut2StartMinute").append($('<option>').val("00").text("00"));
+		$("#cut2EndMinute").append($('<option>').val("00").text("00"));
+
+		$("#cut1StartMinute").append($('<option>').val("30").text("30"));
+		$("#cut1EndMinute").append($('<option>').val("30").text("30"));
+		$("#cut2StartMinute").append($('<option>').val("30").text("30"));
+		$("#cut2EndMinute").append($('<option>').val("30").text("30"));
+
+
+  // ===================================== 時間コンボボックスの作成  end  =====================================
+
   // 入力ダイアログを定義
   $("#cutSchedule").dialog({
     title: "スケジュールの変更",
     autoOpen: false,
     modal: true,
     resizable: false,
-    height: 360,
-    width: 400,
+    height: 320,
+    width: 360,
     open: function (event, ui) {
       // 閉じるボタンを非表示
       $(".ui-dialog-titlebar-close").hide();
@@ -49,12 +76,30 @@ $(function () {
     }
   });
 
+  $(document).on('click', '#schedulePage', function () {
+    $('<form/>', {action: '/index', method: 'post'})
+      .appendTo(document.body)
+      .submit();
+  });
+
+  $(document).on('click', '#dashboard', function () {
+    $('<form/>', {action: '/dashboard', method: 'post'})
+      .appendTo(document.body)
+      .submit();
+  });
+
+  $(document).on('click', '#tablePage', function () {
+    $('<form/>', {action: '/tablePage', method: 'post'})
+      .appendTo(document.body)
+      .submit();
+  });
+
   $(document).on('click', '#testBtn', function () {
 
     // 通信実行
     $.ajax({
       type: "post",
-      url: "http://localhost:8080/service",
+      url: "/service",
       data: JSON.stringify($("#testTable").tabulator("getData")),
       contentType: 'application/json',
       dataType: "json",
@@ -86,7 +131,7 @@ $(function () {
     // 通信実行
     $.ajax({
       type: "post",
-      url: "http://localhost:8080/company",
+      url: "/company",
       dataType: "json",
     })
     .then(
@@ -106,7 +151,7 @@ $(function () {
     // 通信実行
     $.ajax({
       type: "post",
-      url: "http://localhost:8080/insCompany",
+      url: "/insCompany",
       dataType: "json",
     })
     .then(
@@ -124,7 +169,7 @@ $(function () {
 
   $(document).on('click', '#helloBtn', function () {
 
-    $('<form/>', {action: 'http://localhost:8080/hello', method: 'post'})
+    $('<form/>', {action: '/hello', method: 'post'})
       .append($('<input/>', {type: 'hidden', name: 'name', value: "名前です"}))
       .append($('<input/>', {type: 'hidden', name: 'aaa', value: "aです"}))
       .append($('<input/>', {type: 'hidden', name: 'bbb', value: "bです"}))
