@@ -11,7 +11,8 @@ public class ScheduleEntity extends AbstractEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long scheduleId;
+  @Column(name = "scheduleId")
+  private Long id;
 
   private Long timeline;
   private Long start;

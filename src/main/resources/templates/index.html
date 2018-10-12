@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 
@@ -8,6 +9,7 @@
 	<meta name="keywords" content="springboot,thymeleaf,layout,トップページ"/>
 	<meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。"/>
 
+	<script th:src="@{/js/index.js}"></script>
 
 </head>
 <body>
@@ -30,6 +32,7 @@
 			</div>
 
 			<div id="cutSchedule" style="display: none;">
+				<input type="hidden" id="scheduleId">
 				<div>
 					<div class="cutBox1">
 						<div class="cutTime">

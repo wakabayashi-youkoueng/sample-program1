@@ -120,6 +120,26 @@ public class HelloController {
     return json;
   }
 
+  @RequestMapping(value = "/updSchedule", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseBody
+  public String updSchedule(@RequestBody ScheduleDto scheduleDto) {
+
+    ScheduleDto resultDto = helloService.SingleInsOrUpdSchedule(scheduleDto);
+
+    String json = CommonUtil.dto2Json(resultDto);
+    return json;
+  }
+
+  @RequestMapping(value = "/insSchedule", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseBody
+  public String insSchedule(@RequestBody ScheduleDto scheduleDto) {
+
+    ScheduleDto resultDto = helloService.SingleInsOrUpdSchedule(scheduleDto);
+
+    String json = CommonUtil.dto2Json(resultDto);
+    return json;
+  }
+
   @RequestMapping("/refreshSchedule")
   @ResponseBody
   public String refreshSchedule() {
@@ -129,5 +149,10 @@ public class HelloController {
     String json = CommonUtil.dto2Json(scheduleDtoList);
 
     return json;
+  }
+
+  public String insSchedule() {
+
+    return "";
   }
 }

@@ -51,7 +51,7 @@ public class HelloService {
 
   public List<ScheduleDto> RefreshSchedule() {
 
-  	scheduleDao.delAll();
+    scheduleDao.delAll();
 
     List<ScheduleEntity> scheduleEntityList = new ArrayList<>();
 
@@ -78,6 +78,21 @@ public class HelloService {
     List<ScheduleEntity> resultList = scheduleDao.insList(scheduleEntityList);
 
     return CommonUtil.copyListProperties(resultList, ScheduleDto.class);
+  }
+
+  public ScheduleDto SingleInsOrUpdSchedule(ScheduleDto prmDto) {
+
+    ScheduleEntity scheduleEntity = new ScheduleEntity();
+
+    BeanUtils.copyProperties(prmDto, scheduleEntity);
+
+    ScheduleEntity resultEntity = scheduleDao.singleInsertOrUpdate(scheduleEntity);
+
+    ScheduleDto resultDto = new ScheduleDto();
+
+    BeanUtils.copyProperties(resultEntity, resultDto);
+
+    return resultDto;
   }
 
   /**

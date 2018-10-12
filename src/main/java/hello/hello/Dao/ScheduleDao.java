@@ -25,16 +25,21 @@ public class ScheduleDao {
     return scheduleEntityList;
   }
 
+  public ScheduleEntity singleInsertOrUpdate(ScheduleEntity prmEntity) {
+
+    return scheduleRepository.save(prmEntity);
+  }
+
   private Sort sortByIdAsc() {
-    return new Sort(Sort.Direction.ASC, "scheduleId");
+    return new Sort(Sort.Direction.ASC, "id");
   }
 
   public void delAll() {
     scheduleRepository.deleteAll();
   }
 
-  public List<ScheduleEntity> insList(List<ScheduleEntity> preList) {
+  public List<ScheduleEntity> insList(List<ScheduleEntity> prmList) {
 
-    return scheduleRepository.saveAll(preList);
+    return scheduleRepository.saveAll(prmList);
   }
 }

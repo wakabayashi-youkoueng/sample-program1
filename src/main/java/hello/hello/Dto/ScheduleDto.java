@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class ScheduleDto {
 
-  private Long scheduleId;
+  private Long id;
 
   private Long timeline;
   private Long start;
