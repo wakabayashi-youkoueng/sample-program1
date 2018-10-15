@@ -95,6 +95,10 @@ $(function () {
     verticalScrollbar: 0,
     rows: rows,
     change: function (node, scheduleData) {
+
+
+
+
       // 通信実行
       $.ajax({
         type: "post",
@@ -112,8 +116,13 @@ $(function () {
         // 失敗時の処理
         console.log("失敗しました");
       });
+
+
+
     },
     click: function (node, scheduleData, timeline, timelineList) {
+
+
 
       $("#scheduleId").val(scheduleData.id);
 
@@ -139,6 +148,10 @@ $(function () {
       $("#cut2EndHour").val(cut2EndHour);
       $("#cut2EndMinute").val(cut2EndMinute);
     }
+
+
+
+
   });
 
   // スケジュールを取得
@@ -149,6 +162,9 @@ $(function () {
       url: "/getSchedule",
       dataType: "json",
     }).then(function (json_data) {
+
+    console.log(json_data);
+
       // 成功時の処理
       $.each(json_data, function (index, value) {
         var tmpSchedule = {

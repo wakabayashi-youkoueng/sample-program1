@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: localhost
+---
+spring:
+  profiles: localhost
+  datasource:
+    url: jdbc:mysql://localhost:3306/bookshelf
+    username: test
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+---
+spring:
+  profiles: docker
+  datasource:
+    url: jdbc:mysql://mysql:3306/bookshelf
+    username: test
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
