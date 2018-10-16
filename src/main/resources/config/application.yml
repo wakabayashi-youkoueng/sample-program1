@@ -10,7 +10,7 @@ spring:
     password: test
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -23,7 +23,20 @@ spring:
     password: test
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+---
+spring:
+  profiles: docker2
+  datasource:
+    url: jdbc:mysql://mysql2:3306/bookshelf
+    username: test
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect

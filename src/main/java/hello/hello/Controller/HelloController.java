@@ -50,7 +50,7 @@ public class HelloController {
    */
   @PostMapping("/dashboard")
   public String dashboard() {
-    return "/dashboard";
+    return "dashboard";
   }
 
   /**
@@ -60,7 +60,7 @@ public class HelloController {
    */
   @PostMapping("/tablePage")
   public String tablePage() {
-    return "/tablePage";
+    return "tablePage";
   }
 
   /**
