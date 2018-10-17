@@ -1,5 +1,6 @@
-package hello.hello.Entity;
+package hello.hello.Entity.primary;
 
+import hello.hello.Entity.AbstractEntity;
 import lombok.Data;
 
 import javax.persistence.*;

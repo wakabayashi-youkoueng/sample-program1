@@ -1,13 +1,8 @@
 package hello.hello.Service;
 
-import hello.hello.Dao.CompanyDao;
 import hello.hello.Dao.ScheduleDao;
-import hello.hello.Dto.CompanyDto;
-import hello.hello.Dto.EmployeeDto;
 import hello.hello.Dto.ScheduleDto;
-import hello.hello.Entity.CompanyEntity;
-import hello.hello.Entity.EmployeeEntity;
-import hello.hello.Entity.ScheduleEntity;
+import hello.hello.Entity.primary.ScheduleEntity;
 import hello.hello.Util.CommonUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +14,6 @@ import java.util.List;
 @Service
 public class HelloService {
 
-  @Autowired CompanyDao companyDao;
   @Autowired ScheduleDao scheduleDao;
 
   public List<ScheduleDto> getSchedule() {
@@ -31,22 +25,6 @@ public class HelloService {
     scheduleDtoList = CommonUtil.copyListProperties(scheduleEntityList, ScheduleDto.class);
 
     return scheduleDtoList;
-  }
-
-  /**
-   * 会社を取得
-   *
-   * @return CompanyDto
-   */
-  public CompanyDto getCompany() {
-
-    CompanyEntity companyEntity = companyDao.searchCompany(1L);
-    CompanyDto dto = new CompanyDto();
-    BeanUtils.copyProperties(companyEntity, dto);
-    dto.setEmployeeDtoList(
-        CommonUtil.copyListProperties(companyEntity.getEmployeeEntityList(), EmployeeDto.class));
-
-    return dto;
   }
 
   public List<ScheduleDto> RefreshSchedule() {
@@ -93,35 +71,5 @@ public class HelloService {
     BeanUtils.copyProperties(resultEntity, resultDto);
 
     return resultDto;
-  }
-
-  /**
-   * 単一会社登録
-   *
-   * @return
-   */
-  public CompanyEntity insCompany() {
-
-    CompanyEntity insEntity = new CompanyEntity();
-
-    insEntity.setCompanyName("テスト会社");
-
-    List<EmployeeEntity> employeeEntityList = new ArrayList<>();
-
-    EmployeeEntity emp1 = new EmployeeEntity();
-    emp1.setEmpname("社員1");
-    emp1.setCompany(insEntity);
-    employeeEntityList.add(emp1);
-
-    EmployeeEntity emp2 = new EmployeeEntity();
-    emp2.setEmpname("社員2");
-    emp2.setCompany(insEntity);
-    employeeEntityList.add(emp2);
-
-    insEntity.setEmployeeEntityList(employeeEntityList);
-
-    CompanyEntity result = companyDao.insCompany(insEntity);
-
-    return result;
   }
 }

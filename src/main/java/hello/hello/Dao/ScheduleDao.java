@@ -1,7 +1,7 @@
 package hello.hello.Dao;
 
-import hello.hello.Entity.ScheduleEntity;
-import hello.hello.Repository.ScheduleRepository;
+import hello.hello.Entity.primary.ScheduleEntity;
+import hello.hello.Repository.primary.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;

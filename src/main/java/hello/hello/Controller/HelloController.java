@@ -1,8 +1,6 @@
 package hello.hello.Controller;
 
-import hello.hello.Dto.CompanyDto;
 import hello.hello.Dto.ScheduleDto;
-import hello.hello.Entity.CompanyEntity;
 import hello.hello.Form.Sample2Bean;
 import hello.hello.Service.HelloService;
 import hello.hello.Util.CommonUtil;
@@ -90,32 +88,6 @@ public class HelloController {
     List<ScheduleDto> scheduleDtoList = helloService.getSchedule();
 
     String json = CommonUtil.dto2Json(scheduleDtoList);
-
-    return json;
-  }
-  /**
-   * 会社・社員リストを取得する処理
-   *
-   * @return 会社
-   */
-  @RequestMapping("/company")
-  @ResponseBody
-  public String company() {
-
-    CompanyDto dto = helloService.getCompany();
-
-    String json = CommonUtil.dto2Json(dto);
-
-    return json;
-  }
-
-  @RequestMapping("/insCompany")
-  @ResponseBody
-  public String insCompany() {
-
-    CompanyEntity companyEntity = helloService.insCompany();
-
-    String json = CommonUtil.dto2Json(companyEntity);
 
     return json;
   }

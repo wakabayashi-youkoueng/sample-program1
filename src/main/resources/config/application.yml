@@ -5,38 +5,41 @@ spring:
 spring:
   profiles: localhost
   datasource:
-    url: jdbc:mysql://localhost:3306/bookshelf
-    username: test
-    password: test
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    primary:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/bookshelf
+      username: test
+      password: test
+    secondary:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/bookshelf2
+      username: test2
+      password: test2
 ---
 spring:
   profiles: docker
-  datasource:
-    url: jdbc:mysql://mysql:3306/bookshelf
-    username: test
-    password: test
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    datasource:
+      primary:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/bookshelf
+        username: test
+        password: test
+      secondary:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/bookshelf2
+        username: test2
+        password: test2
 ---
 spring:
   profiles: docker2
-  datasource:
-    url: jdbc:mysql://mysql2:3306/bookshelf
-    username: test
-    password: test
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    datasource:
+      primary:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/bookshelf
+        username: test
+        password: test
+      secondary:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/bookshelf2
+        username: test2
+        password: test2
