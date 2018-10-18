@@ -1,4 +1,4 @@
-package hello.hello.Dao;
+package hello.hello.Dao.primary;
 
 import hello.hello.Entity.primary.ScheduleEntity;
 import hello.hello.Repository.primary.ScheduleRepository;

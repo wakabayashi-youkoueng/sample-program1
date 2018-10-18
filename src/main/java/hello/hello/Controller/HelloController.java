@@ -1,6 +1,7 @@
 package hello.hello.Controller;
 
 import hello.hello.Dto.ScheduleDto;
+import hello.hello.Entity.secondary.Book;
 import hello.hello.Form.Sample2Bean;
 import hello.hello.Service.HelloService;
 import hello.hello.Util.CommonUtil;
@@ -117,14 +118,10 @@ public class HelloController {
   public String refreshSchedule() {
 
     List<ScheduleDto> scheduleDtoList = helloService.RefreshSchedule();
+    List<Book> bookList = helloService.RefreshBook();
 
     String json = CommonUtil.dto2Json(scheduleDtoList);
 
     return json;
-  }
-
-  public String insSchedule() {
-
-    return "";
   }
 }

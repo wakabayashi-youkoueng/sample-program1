@@ -1,8 +1,10 @@
 package hello.hello.Service;
 
-import hello.hello.Dao.ScheduleDao;
+import hello.hello.Dao.primary.ScheduleDao;
+import hello.hello.Dao.secondary.BookDao;
 import hello.hello.Dto.ScheduleDto;
 import hello.hello.Entity.primary.ScheduleEntity;
+import hello.hello.Entity.secondary.Book;
 import hello.hello.Util.CommonUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ import java.util.List;
 public class HelloService {
 
   @Autowired ScheduleDao scheduleDao;
+
+  @Autowired BookDao bookDao;
 
   public List<ScheduleDto> getSchedule() {
 
@@ -56,6 +60,26 @@ public class HelloService {
     List<ScheduleEntity> resultList = scheduleDao.insList(scheduleEntityList);
 
     return CommonUtil.copyListProperties(resultList, ScheduleDto.class);
+  }
+
+  public List<Book> RefreshBook() {
+
+    Book book1 = new Book();
+    Book book2 = new Book();
+
+    book1.setIsbn("1234");
+    book1.setTitle("書籍１");
+
+    book2.setIsbn("5678");
+    book2.setTitle("書籍２");
+
+    List<Book> bookList = new ArrayList<>();
+    bookList.add(book1);
+    bookList.add(book2);
+
+    List<Book> resultList = bookDao.InsOrUpdBook(bookList);
+
+    return resultList;
   }
 
   public ScheduleDto SingleInsOrUpdSchedule(ScheduleDto prmDto) {
