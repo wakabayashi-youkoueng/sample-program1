@@ -37,6 +37,9 @@ dependencies {
 
   compile('mysql:mysql-connector-java:5.1.47')
 
+  compile files('lib/sqljdbc42.jar')
+
+
   testCompile("org.mockito:mockito-core:2.23.0")
   testCompile("junit:junit:4.12")
   testCompile('org.springframework.boot:spring-boot-starter-test:2.0.5.RELEASE')

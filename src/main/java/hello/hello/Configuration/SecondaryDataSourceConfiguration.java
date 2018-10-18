@@ -51,8 +51,8 @@ public class SecondaryDataSourceConfiguration {
             .build();
 
     HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-    vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5InnoDBDialect");
-    vendorAdapter.setDatabase(Database.MYSQL);
+    vendorAdapter.setDatabasePlatform("org.hibernate.dialect.SQLServer2012Dialect");
+    vendorAdapter.setDatabase(Database.SQL_SERVER);
     vendorAdapter.setShowSql(true);
     vendorAdapter.setGenerateDdl(true);
     bean.setJpaVendorAdapter(vendorAdapter);
