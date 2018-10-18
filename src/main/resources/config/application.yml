@@ -5,6 +5,7 @@ spring:
 spring:
   profiles: localhost
   datasource:
+    driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/bookshelf
     username: test
     password: test
@@ -18,19 +19,21 @@ spring:
 spring:
   profiles: docker
   datasource:
-    url: jdbc:mysql://mysql:3306/bookshelf
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://mysql1:3306/bookshelf
     username: test
     password: test
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
+    jpa:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 ---
 spring:
   profiles: docker2
   datasource:
+    driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://mysql2:3306/bookshelf
     username: test
     password: test

@@ -42,3 +42,7 @@ dependencies {
   testCompile('org.springframework.boot:spring-boot-starter-test:2.0.5.RELEASE')
   testCompile('org.assertj:assertj-core:3.2.0')
 }
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '4.10.2'
+}
