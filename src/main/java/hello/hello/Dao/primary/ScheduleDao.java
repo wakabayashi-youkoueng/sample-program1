@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+@Component("ScheduleDao")
 public class ScheduleDao {
 
   @Autowired ScheduleRepository scheduleRepository;

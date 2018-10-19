@@ -57,10 +57,16 @@ public class SecondaryDataSourceConfiguration {
     //    vendorAdapter.setGenerateDdl(true);
     //    bean.setJpaVendorAdapter(vendorAdapter);
 
+    //	  HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+    //	  vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5InnoDBDialect");
+    //	  vendorAdapter.setDatabase(Database.MYSQL);
+    //	  vendorAdapter.setShowSql(true);
+    //	  vendorAdapter.setGenerateDdl(true);
+
     // VendorAdapterの設定
     HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-    vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5InnoDBDialect");
-    vendorAdapter.setDatabase(Database.MYSQL);
+    vendorAdapter.setDatabasePlatform("org.hibernate.dialect.Oracle10gDialect");
+    vendorAdapter.setDatabase(Database.ORACLE);
     vendorAdapter.setShowSql(true);
     vendorAdapter.setGenerateDdl(true);
 

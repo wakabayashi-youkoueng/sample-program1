@@ -11,10 +11,10 @@ spring:
       username: test
       password: test
     secondary:
-      driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/bookshelf2
-      username: test2
-      password: test2
+      driverClassName: oracle.jdbc.driver.OracleDriver
+      url: jdbc:oracle:thin:@localhost:1521:XE
+      username: bookshelf
+      password: test
 ---
 #spring:
 #  profiles: localhost
@@ -29,6 +29,21 @@ spring:
 #      url: jdbc:sqlserver://WAKA-VJS1321\SQLEXPRESS01;databaseName=bookshelf3
 #      username: test3
 #      password: test3
+
+---
+#spring:
+#  profiles: localhost
+#  datasource:
+#    primary:
+#      driverClassName: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/bookshelf
+#      username: test
+#      password: test
+#    secondary:
+#      driverClassName: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/bookshelf2
+#      username: test2
+#      password: test2
 ---
 spring:
   profiles: docker
